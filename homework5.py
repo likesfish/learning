@@ -1,20 +1,20 @@
 import random
 
-name = []
+names = []
 
-names = ''
-while names.lower() != "done":
-    names = raw_input('What is your name? ')
-    name.append(names)
-name = name[0:-1]
+name = ''
+while True:
+    name = raw_input('What is your names? ')
+    if name == 'done':
+        break
+    names.append(name)
 
 number = raw_input('What size groups would you like? ')
 group = int(number)
 
-random.shuffle(name)
-uhoh = len(name)
-print '-----'
-for names in range(0,uhoh,group):
-    for i in range(names, group + names):
-        print name[i]
+random.shuffle(names)
+
+for name in range(0, len(names), group):
+    for i in range(name, group + name):
+        print names[i]
     print '-----'
