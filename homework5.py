@@ -4,17 +4,25 @@ names = []
 
 name = ''
 while True:
-    name = raw_input('What is your names? ')
+    name = input('What are your names? ')
     if name == 'done':
         break
     names.append(name)
 
-number = raw_input('What size groups would you like? ')
-group = int(number)
+number = input('What size groups would you like? ')
+group_size = int(number)
 
-random.shuffle(names)
+def make_groups(names, group_size):
 
-for name in range(0, len(names), group):
-    for i in range(name, group + name):
-        print names[i]
-    print '-----'
+    random.shuffle(names)
+    #boundary slices list into groups
+    all_groups = []
+    for boundary in range(0, len(names), group_size):
+        group = []
+        for i in range(boundary, boundary + group_size, 1):
+            #i am appending the name [i] in the list of names
+            group.append(names[i])
+        all_groups.append(group)
+    return all_groups
+
+print(make_groups(names, group_size))
