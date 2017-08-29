@@ -4,6 +4,11 @@ def bad_function(a, b):
     except ZeroDivisionError:
         return 0
 
+
+def test_bad_function(a, b):
+    assert bad_function(4, 2) == 2
+    assert bad_function(4, 0) == 0
+
 print(bad_function(11, 0))
 
 mydict = {
